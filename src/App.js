@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home/Home.js";
 import { AuthContext } from "./context/AuthContext.js";
 import Login from "./pages/login/Login";
+import Users from "./pages/Users/Users.js";
 function App() {
   const ProtectedRoute = ({ children }) => {
     const { user } = useContext(AuthContext);
@@ -21,6 +22,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/users"
+          element={
+            <ProtectedRoute>
+              <Users />
             </ProtectedRoute>
           }
         ></Route>
